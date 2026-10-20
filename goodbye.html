@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Until We Meet Again — A cosmic farewell wish for Estelle, my Commander.">
+  <title>Until We Meet Again — For Estelle, My Commander 🌌</title>
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+  <!-- Background Animated Starfield Canvas (Configured for upward cosmic drift) -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <!-- Ambient Cosmic Nebula Overlays -->
+  <div class="nebula-glow nebula-1" aria-hidden="true"></div>
+  <div class="nebula-glow nebula-2" aria-hidden="true"></div>
+
+  <!-- Main Layout Container -->
+  <div class="app-container">
+    
+    <!-- Top Header & Journey Navigation -->
+    <header class="site-header">
+      <a href="index.html" class="brand-badge" title="Return to The Beginning">
+        <span class="brand-icon" aria-hidden="true">🌙</span>
+        <span>Commander's Chapter</span>
+      </a>
+
+      <nav class="journey-nav" aria-label="Farewell Journey Navigation">
+        <a href="index.html" class="journey-step">
+          <span class="step-number">01</span>
+          <span>The Beginning</span>
+        </a>
+        <a href="letter.html" class="journey-step">
+          <span class="step-number">02</span>
+          <span>The Unsent Letter</span>
+        </a>
+        <a href="goodbye.html" class="journey-step active" aria-current="page">
+          <span class="step-number">03</span>
+          <span>Until We Meet</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Main Goodbye View -->
+    <main class="goodbye-view">
+      <div class="goodbye-container">
+        
+        <!-- Sequential Cosmic Narrative Lines -->
+        <section class="quote-sequence" aria-label="Cosmic Farewell Reflection">
+          <p class="quote-line" id="quote1">
+            &ldquo;Some chapters end...&rdquo;
+          </p>
+          <p class="quote-line" id="quote2">
+            &ldquo;Some memories stay...&rdquo;
+          </p>
+          <p class="quote-line highlight" id="quote3">
+            &ldquo;And some people will always have a special place in our story.&rdquo;
+          </p>
+        </section>
+
+        <!-- Final Heartfelt Card -->
+        <article class="final-farewell-card" id="finalFarewellCard" aria-label="Final Farewell Message">
+          <p class="farewell-main-text">
+            Take care, Commander. Wherever life takes you, I hope it gives you countless reasons to smile. 💙
+          </p>
+        </article>
+
+        <!-- Interactive Action Buttons -->
+        <nav class="goodbye-actions" id="goodbyeActions" aria-label="Farewell Actions">
+          <!-- Button 1: Read My Letter Again -->
+          <a href="letter.html" class="btn-secondary" id="btnReadAgain">
+            <span aria-hidden="true">💌</span>
+            <span>Read My Letter Again</span>
+          </a>
+
+          <!-- Button 2: Keep This Memory (Download Text Keepsake) -->
+          <button type="button" class="btn-primary" id="btnKeepMemory" onclick="downloadFarewellLetter()">
+            <span aria-hidden="true">📥</span>
+            <span>Keep This Memory</span>
+          </button>
+
+          <!-- Button 3: Start From The Beginning -->
+          <a href="index.html" class="btn-secondary" id="btnStartBeginning">
+            <span aria-hidden="true">🌙</span>
+            <span>Start From The Beginning</span>
+          </a>
+
+          <!-- Button 4: Surprise, Commander -->
+          <button type="button" class="btn-surprise" id="btnSurprise" onclick="openSurpriseModal()">
+            <span aria-hidden="true">🎁</span>
+            <span>Surprise, Commander</span>
+          </button>
+        </nav>
+
+      </div>
+    </main>
+
+    <!-- Surprise Modal for Commander -->
+    <div class="modal-backdrop" id="surpriseModal" role="dialog" aria-modal="true" aria-labelledby="surpriseTitle" style="display: none;">
+      <div class="modal-card">
+        <button type="button" class="modal-close" onclick="closeSurpriseModal()" aria-label="Close surprise modal">✕</button>
+        
+        <div class="surprise-header">
+          <span class="surprise-tag">✨ A Secret For Commander</span>
+          <h2 class="surprise-title" id="surpriseTitle">A Little Surprise For You, Commander 🌙</h2>
+        </div>
+
+        <!-- 3 Lines in English as requested -->
+        <div class="surprise-narrative">
+          <p class="surprise-line line-1">
+            &ldquo;Commander, you've never actually seen what I look like, right? 🌙&rdquo;
+          </p>
+          <p class="surprise-line line-2">
+            &ldquo;There's a little button down below... go ahead and take a peek if you're curious.&rdquo;
+          </p>
+          <p class="surprise-line line-3">
+            &ldquo;Fair warning though haha: I'm definitely not some handsome movie star or model—just a very ordinary, average guy. But well... here I am anyway. 🙂&rdquo;
+          </p>
+        </div>
+
+        <!-- Bottom Button to Reveal Photo -->
+        <div class="surprise-action-area">
+          <button type="button" class="btn-primary" id="btnRevealPhoto" onclick="toggleSurprisePhoto()">
+            <span id="revealBtnIcon" aria-hidden="true">📷</span>
+            <span id="revealBtnText">Reveal My Photo</span>
+          </button>
+          <span class="surprise-hint" id="surpriseHint">Click once to reveal · You can view or hide it anytime</span>
+        </div>
+
+        <!-- Photo Reveal Container -->
+        <div class="surprise-photo-container" id="surprisePhotoContainer" style="display: none;">
+          <div class="surprise-photo-frame" onclick="openLightbox()" title="Click to view in Full HD">
+            <img id="commanderSurpriseImg" 
+                 src="assets/my-photo.jpg" 
+                 onerror="this.onerror=null; this.src='assets/placeholder-avatar.svg';" 
+                 alt="Photo for Commander" 
+                 loading="lazy" />
+            <div class="photo-zoom-hint" aria-hidden="true">
+              <span>🔍</span>
+              <span>Tap to Zoom HD</span>
+            </div>
+          </div>
+          <!-- Personal Note for Commander Under Photo -->
+          <div class="surprise-photo-note" id="surprisePhotoCaption">
+            <p class="photo-note-p">
+              &ldquo;No matter how you look, you will always be beautiful to me, Commander. That's why you never need to send me your photo—just having my picture with you is more than enough. Whether you choose to keep it safe or not is entirely up to you. 💙&rdquo;
+            </p>
+            <p class="photo-note-p photo-note-sub">
+              &ldquo;Also, I completely forgot to tell you one funny thing, Commander… this is honestly the single only decent photo I had of myself! 😅 All my other pictures look terrible haha. Even this one was taken back when I finished my internship, on the graduation day celebration held at that company. Aside from this, the only good photos I have are from when I was a little kid—I really don't have any other nice photos, Commander, sorry! 😔🫡&rdquo;
+            </p>
+          </div>
+          <div class="surprise-photo-tools">
+            <span class="view-status-pill">✨ Unlocked · Revisit anytime</span>
+            <button type="button" class="btn-subtle" onclick="openLightbox()">
+              <span aria-hidden="true">🔍</span>
+              <span>Full HD View</span>
+            </button>
+            <a href="assets/my-photo.jpg" download="Photo-For-Commander.jpg" class="btn-subtle">
+              <span aria-hidden="true">📥</span>
+              <span>Save Photo</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Fullscreen HD Lightbox Modal -->
+    <div class="lightbox-backdrop" id="photoLightbox" role="dialog" aria-modal="true" aria-label="HD Photo Viewer" style="display: none;">
+      <div class="lightbox-content">
+        <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close HD photo view">✕</button>
+        <img class="lightbox-img" 
+             src="assets/my-photo.jpg" 
+             alt="Photo for Commander in HD" 
+             onerror="this.onerror=null; this.src='assets/placeholder-avatar.svg';" />
+        <div class="surprise-photo-tools" style="margin-top: 0.5rem;">
+          <a href="assets/my-photo.jpg" download="Photo-For-Commander.jpg" class="btn-primary" style="padding: 0.65rem 1.6rem; font-size: 0.9rem;">
+            <span aria-hidden="true">📥</span>
+            <span>Save Photo to Device</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <p class="footer-text">Some chapters end. The memories remain. 💙</p>
+      <p class="footer-sub">Until We Meet Again · Part 3 of 3</p>
+    </footer>
+
+  </div>
+
+  <script src="shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize starfield with upward drifting stars
+      new Starfield('starfield', { mode: 'upward' });
+
+      // Start the sequential message reveal
+      initGoodbyeSequence();
+    });
+  </script>
+</body>
+</html>
