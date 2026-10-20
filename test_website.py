@@ -77,8 +77,11 @@ with open('goodbye.html', 'r', encoding='utf-8') as f:
     assert "Read My Letter Again" in gb_content
     assert "Keep This Memory" in gb_content
     assert "Start From The Beginning" in gb_content
+    assert "Surprise, Commander" in gb_content
+    assert "surpriseModal" in gb_content
+    assert "btnRevealPhoto" in gb_content
     assert "Some chapters end. The memories remain. 💙" in gb_content
-    print("  [PASS] goodbye.html text, quotes & buttons verified")
+    print("  [PASS] goodbye.html text, quotes, surprise button & modal verified")
 
 with open('shared.js', 'r', encoding='utf-8') as f:
     js_content = f.read()

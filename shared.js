@@ -67,7 +67,22 @@ const SITE_CONFIG = {
     "And some people will always have a special place in our story."
   ],
 
-  finalFarewell: "Take care, Commander. Wherever life takes you, I hope it gives you countless reasons to smile. 💙"
+  finalFarewell: "Take care, Commander. Wherever life takes you, I hope it gives you countless reasons to smile. 💙",
+
+  // Surprise for Commander (goodbye.html)
+  surprise: {
+    buttonLabel: "Surprise, Commander 🎁",
+    badge: "A Little Secret",
+    title: "A Little Surprise For You, Commander 🌙",
+    lines: [
+      "Commander, you've never actually seen what I look like, right? 🌙",
+      "There's a little button down below... go ahead and take a peek if you're curious.",
+      "Fair warning though haha: I'm definitely not some handsome prince or model—just a very ordinary, average guy. But well... here I am. 🙂"
+    ],
+    photoSrc: "assets/my-photo.jpg",
+    fallbackPhotoSrc: "assets/placeholder-avatar.svg",
+    photoCaption: "Just an ordinary person who will remember this chapter with Commander fondly. 💙"
+  }
 };
 
 // Make config globally accessible
@@ -580,6 +595,100 @@ function showToast(message) {
   }, 3800);
 }
 
+// ==========================================================================
+// 8. SURPRISE MODAL & PHOTO REVEAL ENGINE (goodbye.html)
+// ==========================================================================
+function openSurpriseModal() {
+  const modal = document.getElementById('surpriseModal');
+  if (!modal) return;
+
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+
+  // Small delay for smooth CSS transition
+  requestAnimationFrame(() => {
+    modal.classList.add('open');
+  });
+
+  // Focus trap / keyboard handler
+  initSurpriseModalListeners();
+}
+
+function closeSurpriseModal() {
+  const modal = document.getElementById('surpriseModal');
+  if (!modal) return;
+
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 350);
+}
+
+function toggleSurprisePhoto() {
+  const container = document.getElementById('surprisePhotoContainer');
+  const btn = document.getElementById('btnRevealPhoto');
+  const btnIcon = document.getElementById('revealBtnIcon');
+  const btnText = document.getElementById('revealBtnText');
+  const hint = document.getElementById('surpriseHint');
+  if (!container || !btn) return;
+
+  const isHidden = container.style.display === 'none' || getComputedStyle(container).display === 'none';
+
+  if (isHidden) {
+    // Reveal photo
+    container.style.display = 'flex';
+    if (btnIcon) btnIcon.textContent = '👁️';
+    if (btnText) btnText.textContent = 'Hide Photo';
+    if (hint) hint.textContent = '✨ Photo unlocked! You can view or hide this anytime.';
+    btn.classList.add('btn-secondary');
+    btn.classList.remove('btn-primary');
+
+    showToast('Photo unlocked for Commander! ✨');
+    try {
+      localStorage.setItem('commander_surprise_unlocked', 'true');
+    } catch (e) {}
+  } else {
+    // Hide photo
+    container.style.display = 'none';
+    if (btnIcon) btnIcon.textContent = '📷';
+    if (btnText) btnText.textContent = 'View Photo Again';
+    if (hint) hint.textContent = 'Photo is currently hidden · Click anytime to take another look.';
+    btn.classList.remove('btn-secondary');
+    btn.classList.add('btn-primary');
+  }
+}
+
+function openPhotoNewTab() {
+  const img = document.getElementById('commanderSurpriseImg');
+  if (!img) return;
+
+  const src = img.currentSrc || img.src;
+  window.open(src, '_blank');
+}
+
+let surpriseListenersInitialized = false;
+function initSurpriseModalListeners() {
+  if (surpriseListenersInitialized) return;
+  surpriseListenersInitialized = true;
+
+  const modal = document.getElementById('surpriseModal');
+  if (!modal) return;
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeSurpriseModal();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      closeSurpriseModal();
+    }
+  });
+}
+
 // Global exposure for event handlers
 window.downloadFarewellLetter = downloadFarewellLetter;
 window.showToast = showToast;
@@ -587,3 +696,8 @@ window.renderMemoryCards = renderMemoryCards;
 window.initGoodbyeSequence = initGoodbyeSequence;
 window.LetterTypewriter = LetterTypewriter;
 window.Starfield = Starfield;
+window.openSurpriseModal = openSurpriseModal;
+window.closeSurpriseModal = closeSurpriseModal;
+window.toggleSurprisePhoto = toggleSurprisePhoto;
+window.openPhotoNewTab = openPhotoNewTab;
+

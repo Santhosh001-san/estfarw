@@ -84,10 +84,72 @@
             <span aria-hidden="true">🌙</span>
             <span>Start From The Beginning</span>
           </a>
+
+          <!-- Button 4: Surprise, Commander -->
+          <button type="button" class="btn-surprise" id="btnSurprise" onclick="openSurpriseModal()">
+            <span aria-hidden="true">🎁</span>
+            <span>Surprise, Commander</span>
+          </button>
         </nav>
 
       </div>
     </main>
+
+    <!-- Surprise Modal for Commander -->
+    <div class="modal-backdrop" id="surpriseModal" role="dialog" aria-modal="true" aria-labelledby="surpriseTitle" style="display: none;">
+      <div class="modal-card">
+        <button type="button" class="modal-close" onclick="closeSurpriseModal()" aria-label="Close surprise modal">✕</button>
+        
+        <div class="surprise-header">
+          <span class="surprise-tag">✨ A Secret For Commander</span>
+          <h2 class="surprise-title" id="surpriseTitle">A Little Surprise For You, Commander 🌙</h2>
+        </div>
+
+        <!-- 3 Lines in English as requested -->
+        <div class="surprise-narrative">
+          <p class="surprise-line line-1">
+            &ldquo;Commander, you've never actually seen what I look like, right? 🌙&rdquo;
+          </p>
+          <p class="surprise-line line-2">
+            &ldquo;There's a little button down below... go ahead and take a peek if you're curious.&rdquo;
+          </p>
+          <p class="surprise-line line-3">
+            &ldquo;Fair warning though haha: I'm definitely not some handsome movie star or model—just a very ordinary, average guy. But well... here I am anyway. 🙂&rdquo;
+          </p>
+        </div>
+
+        <!-- Bottom Button to Reveal Photo -->
+        <div class="surprise-action-area">
+          <button type="button" class="btn-primary" id="btnRevealPhoto" onclick="toggleSurprisePhoto()">
+            <span id="revealBtnIcon" aria-hidden="true">📷</span>
+            <span id="revealBtnText">Reveal My Photo</span>
+          </button>
+          <span class="surprise-hint" id="surpriseHint">Click once to reveal · You can view or hide it anytime</span>
+        </div>
+
+        <!-- Photo Reveal Container -->
+        <div class="surprise-photo-container" id="surprisePhotoContainer" style="display: none;">
+          <div class="surprise-photo-frame">
+            <img id="commanderSurpriseImg" 
+                 src="assets/my-photo.jpg" 
+                 onerror="this.onerror=null; this.src='assets/placeholder-avatar.svg';" 
+                 alt="Photo for Commander" 
+                 loading="lazy" />
+          </div>
+          <p class="surprise-photo-caption" id="surprisePhotoCaption">
+            Just an ordinary guy who will remember this chapter with Commander Estelle fondly. 💙
+          </p>
+          <div class="surprise-photo-tools">
+            <span class="view-status-pill">✨ Unlocked · Revisit anytime</span>
+            <button type="button" class="btn-subtle" onclick="openPhotoNewTab()">
+              <span aria-hidden="true">🔍</span>
+              <span>Full View</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
     <!-- Site Footer -->
     <footer class="site-footer">

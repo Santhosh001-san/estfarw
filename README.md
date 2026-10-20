@@ -33,10 +33,11 @@ Designed with a midnight navy (`#080D20`) and cosmic purple palette, an animated
      - *"Some memories stay..."*
      - *"And some people will always have a special place in our story."*
      - *"Take care, Commander. Wherever life takes you, I hope it gives you countless reasons to smile. 💙"*
-   - Three functional actions:
+   - Four functional actions:
      - 💌 **"Read My Letter Again"** (links to `letter.html`)
      - 📥 **"Keep This Memory"** (downloads `Letter-For-Commander-Estelle.txt` locally to the user's device)
      - 🌙 **"Start From The Beginning"** (links to `index.html`)
+     - 🎁 **"Surprise, Commander"** (opens a secret modal with 3 warm lines and an unlockable photo reveal with toggle/revisit feature)
 
 ---
 
@@ -45,9 +46,14 @@ Designed with a midnight navy (`#080D20`) and cosmic purple palette, an animated
 ```text
 ├── index.html       # Page 1: The Beginning (Hero & Crescent Moon)
 ├── letter.html      # Page 2: The Unsent Letter (Typewriter & Memory Cards)
-├── goodbye.html     # Page 3: Until We Meet Again (Cosmic Drift & Keepsake Download)
-├── shared.css       # Unified cinematic stylesheet, responsive breakpoints & themes
-├── shared.js        # Starfield canvas engine, typewriter, download & editable configs
+├── goodbye.html     # Page 3: Until We Meet Again (Cosmic Drift, Keepsake & Surprise)
+├── assets/
+│   ├── my-photo.jpg            # Your picture for Commander (replace anytime)
+│   ├── placeholder-avatar.svg  # Fallback cosmic avatar
+│   └── README.txt              # Quick instructions for photo replacement
+├── shared.css       # Unified cinematic stylesheet, glassmorphism & modal styles
+├── shared.js        # Starfield canvas engine, typewriter, modal & editable configs
+├── test_website.py  # Automated regression & link validation suite
 ├── README.md        # Documentation, preview & GitHub Pages guide
 └── .gitignore       # Git ignore rules
 ```
@@ -118,6 +124,12 @@ Open `shared.js` and locate `SITE_CONFIG` at the top:
 - **`letter.paragraphs`**: Edit or add paragraphs to the farewell letter.
 - **`memories`**: Customize the 3 memory cards with your own shared moments, icons, and tags.
 - **`goodbyeSequence`**: Customize the cosmic reveal quotes.
+- **`surprise`**: Customize the 3 lines, button label, and caption for the photo surprise.
+
+### 📷 How to Add Your Real Photo:
+1. Simply copy your photo into `d:\estfw\assets\`
+2. Name it `my-photo.jpg` (replacing the placeholder file).
+3. That's it! When Commander clicks "Surprise, Commander" and unlocks the photo, she will see your real picture.
 
 ---
 
