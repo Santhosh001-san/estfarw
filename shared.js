@@ -38,28 +38,28 @@ const SITE_CONFIG = {
     closing: "— Someone who will remember this chapter fondly. 💙"
   },
 
-  // Editable Memory Cards (Displayed below the letter on letter.html)
+  // Memory Cards (Displayed below the letter on letter.html)
   memories: [
     {
       id: "little-things",
       title: "The Little Things",
       tag: "Small Bright Sparks",
       icon: "✨",
-      text: "[Editable Memory Placeholder] The unexpected laughs, random check-ins, and shared thoughts that turned ordinary days into something genuinely warmer and brighter."
+      text: "The unexpected laughs, random check-ins, and shared thoughts that turned ordinary days into something genuinely warmer and brighter."
     },
     {
       id: "moments-worth-keeping",
       title: "Moments Worth Keeping",
       tag: "Unforgettable",
       icon: "🌌",
-      text: "[Editable Memory Placeholder] Honest conversations, mutual support, and having someone who truly understood without needing a million explanations."
+      text: "Honest conversations, mutual support, and having someone who truly understood without needing a million explanations."
     },
     {
       id: "chapter-remembered",
       title: "A Chapter I'll Remember",
       tag: "Lasting Impression",
       icon: "📖",
-      text: "[Editable Memory Placeholder] Walking away with nothing but gratitude and fondness for having crossed paths with you and cheered for you, Commander."
+      text: "Walking away with nothing but gratitude and fondness for having crossed paths with you and cheered for you, Commander."
     }
   ],
 
