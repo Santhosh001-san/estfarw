@@ -129,25 +129,50 @@
 
         <!-- Photo Reveal Container -->
         <div class="surprise-photo-container" id="surprisePhotoContainer" style="display: none;">
-          <div class="surprise-photo-frame">
+          <div class="surprise-photo-frame" onclick="openLightbox()" title="Click to view in Full HD">
             <img id="commanderSurpriseImg" 
                  src="assets/my-photo.jpg" 
                  onerror="this.onerror=null; this.src='assets/placeholder-avatar.svg';" 
                  alt="Photo for Commander" 
                  loading="lazy" />
+            <div class="photo-zoom-hint" aria-hidden="true">
+              <span>🔍</span>
+              <span>Tap to Zoom HD</span>
+            </div>
           </div>
           <p class="surprise-photo-caption" id="surprisePhotoCaption">
             Just an ordinary guy who will remember this chapter with Commander Estelle fondly. 💙
           </p>
           <div class="surprise-photo-tools">
             <span class="view-status-pill">✨ Unlocked · Revisit anytime</span>
-            <button type="button" class="btn-subtle" onclick="openPhotoNewTab()">
+            <button type="button" class="btn-subtle" onclick="openLightbox()">
               <span aria-hidden="true">🔍</span>
-              <span>Full View</span>
+              <span>Full HD View</span>
             </button>
+            <a href="assets/my-photo.jpg" download="Photo-For-Commander.jpg" class="btn-subtle">
+              <span aria-hidden="true">📥</span>
+              <span>Save Photo</span>
+            </a>
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <!-- Fullscreen HD Lightbox Modal -->
+    <div class="lightbox-backdrop" id="photoLightbox" role="dialog" aria-modal="true" aria-label="HD Photo Viewer" style="display: none;">
+      <div class="lightbox-content">
+        <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close HD photo view">✕</button>
+        <img class="lightbox-img" 
+             src="assets/my-photo.jpg" 
+             alt="Photo for Commander in HD" 
+             onerror="this.onerror=null; this.src='assets/placeholder-avatar.svg';" />
+        <div class="surprise-photo-tools" style="margin-top: 0.5rem;">
+          <a href="assets/my-photo.jpg" download="Photo-For-Commander.jpg" class="btn-primary" style="padding: 0.65rem 1.6rem; font-size: 0.9rem;">
+            <span aria-hidden="true">📥</span>
+            <span>Save Photo to Device</span>
+          </a>
+        </div>
       </div>
     </div>
 

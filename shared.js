@@ -661,11 +661,27 @@ function toggleSurprisePhoto() {
 }
 
 function openPhotoNewTab() {
-  const img = document.getElementById('commanderSurpriseImg');
-  if (!img) return;
+  openLightbox();
+}
 
-  const src = img.currentSrc || img.src;
-  window.open(src, '_blank');
+function openLightbox() {
+  const lightbox = document.getElementById('photoLightbox');
+  if (!lightbox) return;
+
+  lightbox.style.display = 'flex';
+  requestAnimationFrame(() => {
+    lightbox.classList.add('open');
+  });
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('photoLightbox');
+  if (!lightbox) return;
+
+  lightbox.classList.remove('open');
+  setTimeout(() => {
+    lightbox.style.display = 'none';
+  }, 300);
 }
 
 let surpriseListenersInitialized = false;
@@ -674,17 +690,31 @@ function initSurpriseModalListeners() {
   surpriseListenersInitialized = true;
 
   const modal = document.getElementById('surpriseModal');
-  if (!modal) return;
+  const lightbox = document.getElementById('photoLightbox');
 
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeSurpriseModal();
-    }
-  });
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeSurpriseModal();
+      }
+    });
+  }
+
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('open')) {
-      closeSurpriseModal();
+    if (e.key === 'Escape') {
+      if (lightbox && lightbox.classList.contains('open')) {
+        closeLightbox();
+      } else if (modal && modal.classList.contains('open')) {
+        closeSurpriseModal();
+      }
     }
   });
 }
@@ -700,4 +730,7 @@ window.openSurpriseModal = openSurpriseModal;
 window.closeSurpriseModal = closeSurpriseModal;
 window.toggleSurprisePhoto = toggleSurprisePhoto;
 window.openPhotoNewTab = openPhotoNewTab;
+window.openLightbox = openLightbox;
+window.closeLightbox = closeLightbox;
+
 
