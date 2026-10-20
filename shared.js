@@ -35,7 +35,7 @@ const SITE_CONFIG = {
       "Maybe this is goodbye to a place, not to the memories it gave us.",
       "Take care of yourself, okay?"
     ],
-    closing: "— Someone who will remember this chapter fondly. 💙"
+    closing: "— Yours lovingly, Santhosh 💙"
   },
 
   // Memory Cards (Displayed below the letter on letter.html)

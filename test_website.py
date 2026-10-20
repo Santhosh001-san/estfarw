@@ -93,7 +93,7 @@ with open('shared.js', 'r', encoding='utf-8') as f:
     assert "LetterTypewriter" in js_content
     assert "Starfield" in js_content
     assert "prefers-reduced-motion" in js_content
-    assert "Someone who will remember this chapter fondly. 💙" in js_content
+    assert "Yours lovingly, Santhosh 💙" in js_content
     print("  [PASS] shared.js configuration, methods and content verified")
 
 print("\nALL VERIFICATION TESTS PASSED SUCCESSFULLY!")
