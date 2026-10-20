@@ -131,8 +131,8 @@
         <div class="surprise-photo-container" id="surprisePhotoContainer" style="display: none;">
           <div class="surprise-photo-frame" onclick="openLightbox()" title="Click to view in Full HD">
             <img id="commanderSurpriseImg" 
-                 src="assets/my-photo.jpg" 
-                 onerror="this.onerror=null; this.src='assets/placeholder-avatar.svg';" 
+                 src="WhatsApp%20Image%202026-10-20%20at%2011.54.49%20AM.jpeg" 
+                 onerror="handlePhotoError(this)" 
                  alt="Photo for Commander" 
                  loading="lazy" />
             <div class="photo-zoom-hint" aria-hidden="true">
@@ -155,7 +155,7 @@
               <span aria-hidden="true">🔍</span>
               <span>Full HD View</span>
             </button>
-            <a href="assets/my-photo.jpg" download="Photo-For-Commander.jpg" class="btn-subtle">
+            <a id="downloadPhotoLink" href="WhatsApp%20Image%202026-10-20%20at%2011.54.49%20AM.jpeg" download="Photo-For-Commander.jpg" class="btn-subtle">
               <span aria-hidden="true">📥</span>
               <span>Save Photo</span>
             </a>
@@ -170,11 +170,12 @@
       <div class="lightbox-content">
         <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close HD photo view">✕</button>
         <img class="lightbox-img" 
-             src="assets/my-photo.jpg" 
+             id="lightboxPhotoImg"
+             src="WhatsApp%20Image%202026-10-20%20at%2011.54.49%20AM.jpeg" 
              alt="Photo for Commander in HD" 
-             onerror="this.onerror=null; this.src='assets/placeholder-avatar.svg';" />
+             onerror="handlePhotoError(this)" />
         <div class="surprise-photo-tools" style="margin-top: 0.5rem;">
-          <a href="assets/my-photo.jpg" download="Photo-For-Commander.jpg" class="btn-primary" style="padding: 0.65rem 1.6rem; font-size: 0.9rem;">
+          <a id="lightboxDownloadLink" href="WhatsApp%20Image%202026-10-20%20at%2011.54.49%20AM.jpeg" download="Photo-For-Commander.jpg" class="btn-primary" style="padding: 0.65rem 1.6rem; font-size: 0.9rem;">
             <span aria-hidden="true">📥</span>
             <span>Save Photo to Device</span>
           </a>

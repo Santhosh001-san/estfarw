@@ -1,5 +1,6 @@
 import os
 import re
+import urllib.parse
 
 print("Running Website Verification Tests...")
 
@@ -32,8 +33,9 @@ for hf in html_files:
             continue
         # Remove query strings or hashes
         clean_path = href.split('?')[0].split('#')[0]
+        unquoted = urllib.parse.unquote(clean_path)
         if clean_path:
-            assert os.path.exists(clean_path), f"Broken link in {hf}: {href} -> {clean_path} does not exist"
+            assert os.path.exists(unquoted) or os.path.exists(clean_path), f"Broken link in {hf}: {href} -> {clean_path} does not exist"
             print(f"  [PASS] {hf} -> Valid link: {href}")
 
     # Find all srcs
@@ -42,8 +44,9 @@ for hf in html_files:
         if src.startswith(('http://', 'https://')):
             continue
         clean_path = src.split('?')[0].split('#')[0]
+        unquoted = urllib.parse.unquote(clean_path)
         if clean_path:
-            assert os.path.exists(clean_path), f"Broken resource in {hf}: {src} -> {clean_path} does not exist"
+            assert os.path.exists(unquoted) or os.path.exists(clean_path), f"Broken resource in {hf}: {src} -> {clean_path} does not exist"
             print(f"  [PASS] {hf} -> Valid resource: {src}")
 
 # Check specific user prompt requirements

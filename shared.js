@@ -667,8 +667,48 @@ function openPhotoNewTab() {
   openLightbox();
 }
 
+function handlePhotoError(img) {
+  if (!img) return;
+  const sources = [
+    'WhatsApp%20Image%202026-10-20%20at%2011.54.49%20AM.jpeg',
+    'WhatsApp Image 2026-10-20 at 11.54.49 AM.jpeg',
+    'my-photo.jpg',
+    'assets/my-photo.jpg',
+    'assets/placeholder-avatar.svg'
+  ];
+
+  let currentSrc = img.getAttribute('src') || '';
+  let currentIndex = -1;
+  for (let i = 0; i < sources.length; i++) {
+    if (currentSrc === sources[i] || currentSrc.endsWith(sources[i])) {
+      currentIndex = i;
+      break;
+    }
+  }
+
+  let nextIndex = currentIndex + 1;
+  if (nextIndex < sources.length) {
+    img.src = sources[nextIndex];
+    img.setAttribute('src', sources[nextIndex]);
+  }
+}
+
 function openLightbox() {
   const lightbox = document.getElementById('photoLightbox');
+  const mainImg = document.getElementById('commanderSurpriseImg');
+  const lightboxImg = document.getElementById('lightboxPhotoImg');
+  const lightboxDownload = document.getElementById('lightboxDownloadLink');
+  const downloadLink = document.getElementById('downloadPhotoLink');
+
+  if (mainImg) {
+    const activeSrc = mainImg.currentSrc || mainImg.src;
+    if (activeSrc) {
+      if (lightboxImg) lightboxImg.src = activeSrc;
+      if (lightboxDownload) lightboxDownload.href = activeSrc;
+      if (downloadLink) downloadLink.href = activeSrc;
+    }
+  }
+
   if (!lightbox) return;
 
   lightbox.style.display = 'flex';
@@ -735,5 +775,6 @@ window.toggleSurprisePhoto = toggleSurprisePhoto;
 window.openPhotoNewTab = openPhotoNewTab;
 window.openLightbox = openLightbox;
 window.closeLightbox = closeLightbox;
+window.handlePhotoError = handlePhotoError;
 
 
