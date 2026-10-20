@@ -84,7 +84,11 @@ const SITE_CONFIG = {
     ],
     photoSrc: "assets/my-photo.jpg",
     fallbackPhotoSrc: "assets/placeholder-avatar.svg",
-    photoCaption: "Just an ordinary person who will remember this chapter with Commander fondly. 💙"
+    photoCaption: "Just an ordinary person who will remember this chapter with Commander fondly. 💙",
+    photoNote: [
+      "Commander, no matter how you look, you will always be beautiful to me. You really don't have to send me your photo—just knowing that my picture is with you is more than enough for me. Whether you keep it safe or not is entirely your choice.",
+      "And honestly haha, I forgot to tell you one thing: this is literally the only good photo I have, Commander! 😅 All my other pictures look completely terrible. Even this one was taken right after I finished my internship, during the company's graduation day event. Apart from this, only my childhood photos look decent... so please forgive the lack of better options, Commander! 😔🫡"
+    ]
   }
 };
 
