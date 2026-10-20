@@ -1372,4 +1372,16 @@ a:focus-visible, button:focus-visible {
   transform: rotate(90deg);
 }
 
+@media (max-width: 640px) {
+  .lightbox-close {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 2010;
+    background: rgba(15, 23, 42, 0.85);
+    width: 42px;
+    height: 42px;
+  }
+}
+
 
