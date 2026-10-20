@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A cinematic farewell tribute for Estelle, Commander. The Last Chapter.">
+  <title>The Last Chapter — For Estelle, My Commander 🌙</title>
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+  <!-- Background Animated Starfield Canvas -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <!-- Ambient Cosmic Nebula Overlays -->
+  <div class="nebula-glow nebula-1" aria-hidden="true"></div>
+  <div class="nebula-glow nebula-2" aria-hidden="true"></div>
+
+  <!-- Main Layout Container -->
+  <div class="app-container">
+    
+    <!-- Top Header & Journey Navigation -->
+    <header class="site-header">
+      <a href="index.html" class="brand-badge" title="The Last Chapter">
+        <span class="brand-icon" aria-hidden="true">🌙</span>
+        <span>Commander's Chapter</span>
+      </a>
+
+      <nav class="journey-nav" aria-label="Farewell Journey Navigation">
+        <a href="index.html" class="journey-step active" aria-current="page">
+          <span class="step-number">01</span>
+          <span>The Beginning</span>
+        </a>
+        <a href="letter.html" class="journey-step">
+          <span class="step-number">02</span>
+          <span>The Unsent Letter</span>
+        </a>
+        <a href="goodbye.html" class="journey-step">
+          <span class="step-number">03</span>
+          <span>Until We Meet</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Hero Cinematic View -->
+    <main class="hero-view">
+      
+      <!-- Glowing Crescent Moon with Ethereal Halo -->
+      <div class="moon-wrapper" aria-hidden="true">
+        <div class="moon-halo"></div>
+        <div class="crescent-moon"></div>
+      </div>
+
+      <!-- Subtitle Tag -->
+      <div class="hero-tag">
+        <span aria-hidden="true">✨</span>
+        <span>For Estelle, My Commander 🌙</span>
+      </div>
+
+      <!-- Primary Title -->
+      <h1 class="hero-title title-glow text-gradient">
+        THE LAST CHAPTER
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="hero-subtitle">
+        For Estelle, My Commander 🌙
+      </p>
+
+      <!-- Atmospheric Narrative Text -->
+      <p class="hero-intro">
+        Hey, Commander… before you go, there's something I want you to know.
+      </p>
+
+      <!-- Interactive Call to Action -->
+      <div class="hero-actions">
+        <a href="letter.html" class="btn-primary" id="enterUniverseBtn" aria-label="Enter My Little Universe, go to the unsent letter">
+          <span>Enter My Little Universe</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <span class="hero-hint">A quiet corner of the cosmos, crafted just for you</span>
+      </div>
+
+    </main>
+
+    <!-- Accessible Site Footer -->
+    <footer class="site-footer">
+      <p class="footer-text">Some chapters end. The memories remain. 💙</p>
+      <p class="footer-sub">Dedicated to Estelle · Part 1 of 3</p>
+    </footer>
+
+  </div>
+
+  <script src="shared.js"></script>
+  <script>
+    // Initialize ambient starfield simulation
+    document.addEventListener('DOMContentLoaded', () => {
+      new Starfield('starfield', { mode: 'ambient' });
+    });
+  </script>
+</body>
+</html>

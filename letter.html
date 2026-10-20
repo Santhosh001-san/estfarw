@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An unsent farewell letter dedicated to Estelle, my Commander.">
+  <title>The Unsent Letter — For Estelle, My Commander 💌</title>
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+  <!-- Background Animated Starfield Canvas -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <!-- Ambient Cosmic Nebula Overlays -->
+  <div class="nebula-glow nebula-1" aria-hidden="true"></div>
+  <div class="nebula-glow nebula-2" aria-hidden="true"></div>
+
+  <!-- Main Layout Container -->
+  <div class="app-container">
+    
+    <!-- Top Header & Journey Navigation -->
+    <header class="site-header">
+      <a href="index.html" class="brand-badge" title="Return to The Beginning">
+        <span class="brand-icon" aria-hidden="true">🌙</span>
+        <span>Commander's Chapter</span>
+      </a>
+
+      <nav class="journey-nav" aria-label="Farewell Journey Navigation">
+        <a href="index.html" class="journey-step">
+          <span class="step-number">01</span>
+          <span>The Beginning</span>
+        </a>
+        <a href="letter.html" class="journey-step active" aria-current="page">
+          <span class="step-number">02</span>
+          <span>The Unsent Letter</span>
+        </a>
+        <a href="goodbye.html" class="journey-step">
+          <span class="step-number">03</span>
+          <span>Until We Meet</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Main Letter View -->
+    <main class="letter-view">
+      
+      <!-- Page Header -->
+      <div class="letter-header-block">
+        <h1 class="page-title text-gradient title-glow">
+          A Letter For You, Commander 💌
+        </h1>
+        <p class="page-desc">
+          Some words are meant to be kept gently, somewhere quiet and sincere.
+        </p>
+      </div>
+
+      <!-- Glowing Interactive Envelope & Letter Container -->
+      <section class="envelope-stage" aria-label="Farewell Letter Container">
+        <div class="envelope-card">
+          
+          <!-- Letter Top Toolbar -->
+          <div class="letter-toolbar">
+            <div class="letter-status">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span id="letterStatusText">Reading letter…</span>
+            </div>
+            <button type="button" class="btn-read-all" id="btnReadAll" aria-label="Reveal entire letter immediately">
+              <span aria-hidden="true">⚡</span>
+              <span>Read All</span>
+            </button>
+          </div>
+
+          <!-- Letter Paper Body -->
+          <article class="letter-paper">
+            <h2 class="letter-salutation">To Estelle, my Commander 🌙</h2>
+            
+            <!-- Typewriter output container -->
+            <div class="letter-content" id="typewriterTarget" aria-live="polite">
+              <!-- Animated typewriter text will stream here -->
+              <noscript>
+                <p>Hey, Commander…</p>
+                <p>I don't really know how to put everything into words, but I wanted to make this little corner of the internet just for you.</p>
+                <p>Maybe one day, we'll stop talking here. Maybe this little part of our daily lives will become a memory. And maybe things won't always be the way they are now.</p>
+                <p>But I don't want this goodbye to feel like all those moments meant nothing.</p>
+                <p>You became someone special to me in a way I never really planned. The conversations, the little moments, the smiles, and even the ordinary days — they all became a part of a memory I'll carry with me.</p>
+                <p>If this is the end of this chapter, I hope you know that I'm genuinely glad our paths crossed.</p>
+                <p>You don't owe me anything, Commander. No promises, no explanations, no pressure. I just wanted you to leave this little place knowing that you mattered.</p>
+                <p>And wherever life takes you next, I hope you find happiness, peace, beautiful people, and a thousand little reasons to smile.</p>
+                <p>Thank you for being my Estelle. Thank you for being my Commander.</p>
+                <p>Maybe this is goodbye to a place, not to the memories it gave us.</p>
+                <p>Take care of yourself, okay?</p>
+                <div class="letter-signature">— Someone who will remember this chapter fondly. 💙</div>
+              </noscript>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Three Memory Cards Section -->
+      <section class="memories-section" aria-label="Memory Cards">
+        <div class="memories-title-wrapper">
+          <h2 class="memories-title">Echoes of This Chapter</h2>
+          <p class="memories-subtitle">Editable memory highlights · Configured in shared.js</p>
+        </div>
+
+        <div class="memory-cards-grid" id="memoryCardsGrid">
+          <!-- Dynamically populated from SITE_CONFIG.memories in shared.js -->
+          <article class="memory-card">
+            <div class="memory-card-icon" aria-hidden="true">✨</div>
+            <div class="memory-card-header">
+              <span class="memory-card-tag">Small Bright Sparks</span>
+              <h3>The Little Things</h3>
+            </div>
+            <p class="memory-card-text">[Editable Memory Placeholder] The unexpected laughs, random check-ins, and shared thoughts that turned ordinary days into something genuinely warmer and brighter.</p>
+          </article>
+
+          <article class="memory-card">
+            <div class="memory-card-icon" aria-hidden="true">🌌</div>
+            <div class="memory-card-header">
+              <span class="memory-card-tag">Unforgettable</span>
+              <h3>Moments Worth Keeping</h3>
+            </div>
+            <p class="memory-card-text">[Editable Memory Placeholder] Honest conversations, mutual support, and having someone who truly understood without needing a million explanations.</p>
+          </article>
+
+          <article class="memory-card">
+            <div class="memory-card-icon" aria-hidden="true">📖</div>
+            <div class="memory-card-header">
+              <span class="memory-card-tag">Lasting Impression</span>
+              <h3>A Chapter I'll Remember</h3>
+            </div>
+            <p class="memory-card-text">[Editable Memory Placeholder] Walking away with nothing but gratitude and fondness for having crossed paths with you and cheered for you, Commander.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Navigation to Next & Previous Chapter -->
+      <nav class="letter-navigation-footer" aria-label="Page navigation">
+        <a href="goodbye.html" class="btn-primary" id="btnTurnFinalPage">
+          <span>Turn the Final Page</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="index.html" class="btn-subtle">
+          <span aria-hidden="true">←</span>
+          <span>Back to Beginning</span>
+        </a>
+      </nav>
+
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <p class="footer-text">Some chapters end. The memories remain. 💙</p>
+      <p class="footer-sub">Dedicated to Estelle · Part 2 of 3</p>
+    </footer>
+
+  </div>
+
+  <script src="shared.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize ambient starfield
+      new Starfield('starfield', { mode: 'ambient' });
+
+      // Render memory cards from editable configuration
+      renderMemoryCards('memoryCardsGrid');
+
+      // Initialize typewriter engine
+      new LetterTypewriter('typewriterTarget', {
+        readAllBtnId: 'btnReadAll',
+        statusTextId: 'letterStatusText',
+        speed: 16
+      });
+    });
+  </script>
+</body>
+</html>
